@@ -1,0 +1,74 @@
+package com.pinehook.plus;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import com.pinehook.plus.R;
+
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView textView = findViewById(R.id.textView);
+        StringBuilder result = new StringBuilder();
+
+        // Test argMethod
+        boolean argMethodResult = argMethod(true);
+        result.append("argMethod(true): ").append(argMethodResult).append("\n");
+        Log.d(TAG, "argMethod(true) called with args: true, returned: " + argMethodResult);
+
+        // Test anotherMethod
+        int anotherMethodResult = anotherMethod(42);
+        result.append("anotherMethod(42): ").append(anotherMethodResult).append("\n");
+        Log.d(TAG, "anotherMethod() called with args: 42, returned: " + anotherMethodResult);
+
+        // Test yetAnotherMethod
+        boolean yetAnotherMethodResult = yetAnotherMethod();
+        result.append("yetAnotherMethod(): ").append(yetAnotherMethodResult).append("\n");
+        Log.d(TAG, "yetAnotherMethod() called, returned: " + yetAnotherMethodResult);
+
+        // Test method with only before hook
+        String beforeOnlyResult = beforeOnlyMethod("before");
+        result.append("beforeOnlyMethod(\"before\"): ").append(beforeOnlyResult).append("\n");
+        Log.d(TAG, "beforeOnlyMethod(\"before\") called with args: \"before\", returned: " + beforeOnlyResult);
+
+        // Test method with only after hook
+        String afterOnlyResult = afterOnlyMethod("after");
+        result.append("afterOnlyMethod(\"after\"): ").append(afterOnlyResult).append("\n");
+        Log.d(TAG, "afterOnlyMethod(\"after\") called with args: \"after\", returned: " + afterOnlyResult);
+
+        Log.d(TAG, "ConstructorClass called with args: false, null, false, 0, 0, null, null, null");
+        new ConstructorClass(false, null, false, 0L, 0L, null, null, null);
+        textView.setText(result.toString());
+    }
+
+    public boolean argMethod(boolean input) {
+        Log.d(TAG, "argMethod called with input: " + input);
+        return input;
+    }
+
+    public int anotherMethod(int number) {
+        Log.d(TAG, "anotherMethod called with number: " + number);
+        return number;
+    }
+
+    public boolean yetAnotherMethod() {
+        Log.d(TAG, "yetAnotherMethod called");
+        return false;
+    }
+
+    public String beforeOnlyMethod(String input) {
+        Log.d(TAG, "beforeOnlyMethod called with input: " + input);
+        return input;
+    }
+
+    public String afterOnlyMethod(String input) {
+        Log.d(TAG, "afterOnlyMethod called with input: " + input);
+        return input;
+    }
+}
