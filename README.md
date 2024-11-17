@@ -126,6 +126,7 @@ In `config.json`, define the target class and method to hook, along with the par
     }
 }
 ```
+Check [config.json](app/src/hook/hook/config.json) for more.
 
 ## Result
 <img src="images/result.png" alt="result preview image" widt="200" height="400">
