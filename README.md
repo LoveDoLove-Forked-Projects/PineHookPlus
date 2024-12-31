@@ -2,6 +2,8 @@
 
 **PineHookPlus** is an advanced example project demonstrating creative and efficient ways to leverage the [Pine Hooking Framework](https://github.com/canyie/pine) for runtime modifications in Android apps. This project focuses on simplifying the integration and customization of hooks, offering a structured and flexible approach to app behavior modification.
 
+To learn more about its usage and demo, please refer to the [blog post](https://qbtaumai.pages.dev/posts/pinehookplus/).
+
 ---
 
 ## 🌟 **Features**
